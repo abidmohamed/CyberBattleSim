@@ -322,6 +322,10 @@ class NodeInfo:
     # Relative node weight used to calculate the cost of stopping this machine
     # or its services
     sla_weight: float = 1.0
+    # Track security upgrades
+    applied_upgrades: List[str] = field(default_factory=list)  
+    # Initial firewall strength
+    firewall_strength: int = 0  
 
 
 class Identifiers(NamedTuple):

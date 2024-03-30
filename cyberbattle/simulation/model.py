@@ -325,7 +325,9 @@ class NodeInfo:
     # Track security upgrades
     applied_upgrades: List[str] = field(default_factory=list)  
     # Initial firewall strength
-    firewall_strength: int = 0  
+    firewall_strength: int = 0
+    # Track IDS deployment
+    ids_deployed: bool = False  
 
 
 class Identifiers(NamedTuple):

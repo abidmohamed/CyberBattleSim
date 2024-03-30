@@ -327,8 +327,9 @@ class NodeInfo:
     # Initial firewall strength
     firewall_strength: int = 0
     # Track IDS deployment
-    ids_deployed: bool = False  
-
+    ids_deployed: bool = False
+    # Track applied patches
+    applied_patches: List[str] = field(default_factory=list)  
 
 class Identifiers(NamedTuple):
     """Define the global set of identifiers used

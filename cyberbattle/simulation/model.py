@@ -329,7 +329,15 @@ class NodeInfo:
     # Track IDS deployment
     ids_deployed: bool = False
     # Track applied patches
-    applied_patches: List[str] = field(default_factory=list)  
+    applied_patches: List[str] = field(default_factory=list) 
+
+    def apply_patch(self, vulnerability_id: str):
+        """Applies a patch to this node by adding the patch to the applied patches
+        list and removing the associated vulnerability."""
+        if vulnerability_id not in self.applied_patches:
+            self.applied_patches.append(vulnerability_id)
+            # Remove the vulnerability associated with the patch
+            self.vulnerabilities.pop(vulnerability_id, None)
 
 class Identifiers(NamedTuple):
     """Define the global set of identifiers used
